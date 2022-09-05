@@ -1,0 +1,131 @@
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
+        <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        
+        <title>Quadri Famosi</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link id="favicon" rel="shortcut icon" type="image/png" href="./favion.png">
+        <script src="script.js"></script>
+    </head>
+    
+    <body>
+        <div id="content">
+            <style>
+                :root
+                {
+                    --background: #5bbaf1;
+                    --border: #a6dbff;
+                    --foreground: #000;
+                    --foreground-color: rgba(0, 13, 129, 0.8);
+                    --star-color: rgba(0, 13, 129, 0.8);
+                }
+
+                .film:hover img
+                {
+                    box-shadow: -1px 3px 20px 0px rgba(109, 10, 86, 0.1), -1px 3px 9px 0px rgba(109, 10, 86, 0.6), -1px 2px 20px 5px rgba(214, 89, 0, 0.3);
+                }
+
+                .film img
+                {
+                    box-shadow: rgba(109, 10, 86, 0.1) -1px 3px 8px 0px, 1px 3px 9px 0px rgba(109, 10, 86, 0.5), rgba(214, 89, 0, 0.2) -1px 2px 20px 2px;
+                }
+            </style>
+            <div class="target top" id="top-drama" onclick="gotoPage('/settings.html?=painting','top')">
+                <div id="border-top" class="border top">
+                    <div>Settings</div>
+                </div>
+            </div>
+            <script>addElement("top-drama")</script>
+
+            <div class="target bottom" id="bottom-drama" onclick="gotoPage('/apps.html','bottom')">
+                <div id="border-bottom" class="border bottom">
+                    <div>Search Apps</div>
+                </div>
+            </div>
+            <script>addElement("bottom-drama")</script>
+
+            <div class="target right" id="right-drama" onclick="gotoPage('/horror.html','right')">
+                <div id="border-right" class="border right">
+                    <div>Horror</div>
+                </div>
+            </div>
+            <script>addElement("right-drama")</script>
+
+            <div class="target left" id="left-drama" onclick="gotoPage('/scifi.html','left')">
+                <div id="border-left" class="border left">
+                    <div>Sci-fi</div>
+                </div>
+            </div>
+            <script>addElement("left-drama")</script>
+
+            <div class="film" id="gioconda" style="top:400px;left:850px;" onclick="openImage('/video.html?=drama','gioconda')">
+                <img id="gioconda-img" src="film/gioconda.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Gioconda</h2>
+                    <p><span class="sub-text a">La Gioconda, nota anche come Monna Lisa</span><span class="sub-text b">è un dipinto a olio su tavola di legno di pioppo realizzato da Leonardo da Vinci</span><span class="sub-text c">conservato nel Museo del Louvre di Parigi.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1503-1506 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i></p>
+                </div>
+            </div>
+            <script>addElement("gioconda")</script>
+
+            <div class="film" id="urlo" style="top:40px;left:40px;" onclick="openImage('/video.html?=drama','urlo')">
+                <img id="urlo-img" src="film/urlo.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">L'urlo</h2>
+                    <p><span class="sub-text a">L’Urlo di Munch mostra in primo piano il volto di un essere umano</span><span class="sub-text b"> totalmente sfigurato</span><span class="sub-text c">con la carnagione di un colore tra il giallo e il verdognolo</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1893–1910 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i></p>
+                </div>
+            </div>
+            <script>addElement("urlo")</script>
+
+            <div class="film" id="nere" style="top:130px;left:540px;" onclick="playMovie('/video.html?=drama','nere')">
+                <img id="nere-img" src="film/nere.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Vertigo</h2>
+                    <p><span class="sub-text a">Faced with crippling dizziness, one</span><span class="sub-text b">man has the courage to sit down</span><span class="sub-text c">and take a minute.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1958 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+            <script>addElement("nere")</script>
+
+            <div class="film" id="suora" style="top:70px;left:950px;" onclick="playMovie('/video.html?=drama','suora')">
+                <img id="suora-img" src="film/suora.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Django: Unchained</h2>
+                    <p><span class="sub-text a">Did you know that Django was white</span><span class="sub-text b">in the 1966 version? He totally was,</span><span class="sub-text c">look it up.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">2012 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+            <script>addElement("suora")</script>
+
+            <div class="film" id="bacio" style="top:450px;left:70px;" onclick="playMovie('/video.html?=drama','bacio')">
+                <img id="bacio-img" src="film/bacio.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Léon</h2>
+                    <p><span class="sub-text a">The chilling tale of a notorius child</span><span class="sub-text b">predetor, Léon, and how he was</span><span class="sub-text c">brought to justice.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1994 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+        </div> <!-- end of content -->
+        <script>addElement("bacio")</script>
+        
+        <div id="brightness"></div>
+        
+        <div id="calibrator">
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+        </div>
+        
+    </body>
+</html>
