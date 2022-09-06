@@ -19,6 +19,53 @@ function addToMap(string, func)
     console.log(myMap);
 }
 
+function drama()
+{
+    emptyList();
+    addElement("top-drama");
+    addToMap("top-drama",function(){
+        gotoPage('/settings.html?=drama','top'); 
+    });
+
+    addElement("bottom-drama");
+    addToMap("bottom-drama",function(){
+        gotoPage('/apps.html','bottom');
+    });
+
+    addElement("right-drama");
+    addToMap("right-drama",function(){
+    });
+
+    addElement("left-drama");
+    addToMap("left-drama",function(){
+    });
+
+    addElement("gioconda");
+    addToMap("gioconda",function(){
+        openImage('/visualizzazione.html?=painting','gioconda');
+    });
+
+    addElement("urlo");
+    addToMap("urlo",function(){
+        openImage('/visualizzazione.html?=painting','urlo');
+    });
+
+    addElement("nafea");
+    addToMap("nafea",function(){
+        openImage('/visualizzazione.html?=painting','nafea');
+    });
+
+    addElement("turbante");
+    addToMap("turbante",function(){
+        openImage('/visualizzazione.html?=painting','turbante');
+    });
+
+    addElement("dama")
+    addToMap("dama",function(){
+        openImage('/visualizzazione.html?=painting','dama');
+    });
+}
+
 function settingsload()
 {
     emptyList();
@@ -79,19 +126,18 @@ function video()
 
     addElement("right-video");
     addToMap("right-video",function(){
-        skipForward();
+        quadroAvanti();
     });
 
     addElement("left-video");
     addToMap("left-video",function(){
-        skipBack();
+        quadroIndietro();
     });
     addElement("player");
     addToMap("player",function(){
         playPause();
     });
     
-    document.getElementById("video").volume = getVol();
 }
 
 function tutorial(){
@@ -125,13 +171,15 @@ function tutorial(){
     })
 
 
+    
+
 }
 
 function apps() {
     emptyList();
     addElement("moviez");
     addToMap("moviez",function(){
-        gotoPage('/drama.html','top');
+        gotoPage('/painting.html','top');
     });
 
     addElement("apps-top");

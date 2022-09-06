@@ -13,7 +13,7 @@
     </head>
     
     <body>
-        <script async="" type="text/javascript" src="webgazer.js"></script>
+        <script async type="text/javascript" src="webgazer.js"></script>
         <script type="text/javascript" src="script.js"></script>
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="gazelistener.js"></script>
@@ -56,7 +56,7 @@
             <script>addElement("left-drama")</script>
 
             <div class="film" id="gioconda" style="top:400px;left:850px;" onclick="openImage('/visualizzazione.html?=quadri','gioconda')">
-                <img id="gioconda-img" src="quadri/gioconda.jpeg">
+                <img id="gioconda-img" src="quadri/gioconda.jpeg" onload="drama()">
                 <div class="text">
                     <h2 class="sub-text">Gioconda</h2>
                     <p><span class="sub-text a">La Gioconda, nota anche come Monna Lisa</span><span class="sub-text b">è un dipinto a olio su tavola di legno di pioppo realizzato da Leonardo da Vinci</span><span class="sub-text c">conservato nel Museo del Louvre di Parigi.</span></p>

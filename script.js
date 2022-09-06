@@ -188,19 +188,19 @@ function toggleCalibrator()
     if(caliShow)
     {
         document.getElementById("calibrator").className = " ";
-        //document.getElementById("webgazerVideoFeed").className = " ";
-        //document.getElementById("webgazerFaceOverlay").className = " ";
-        //document.getElementById("webgazerFaceFeedbackBox").className = " ";
-        //uncomment and turn off mouse events here
+        document.getElementById("webgazerVideoFeed").className = " ";
+        document.getElementById("webgazerFaceOverlay").className = " ";
+        document.getElementById("webgazerFaceFeedbackBox").className = " ";
+        webgazer.removeMouseEventListeners()
         caliShow = false;
     }
     else
     {
         document.getElementById("calibrator").className = "show";
-        //document.getElementById("webgazerVideoFeed").className = "show";
-        //document.getElementById("webgazerFaceOverlay").className = "show";
-        //document.getElementById("webgazerFaceFeedbackBox").className = "show";
-        //uncomment and turn on mouse events here
+        document.getElementById("webgazerVideoFeed").className = "show";
+        document.getElementById("webgazerFaceOverlay").className = "show";
+        document.getElementById("webgazerFaceFeedbackBox").className = "show";
+        webgazer.addMouseEventListeners()
         caliShow = true;
     }
 }

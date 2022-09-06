@@ -1,0 +1,28 @@
+TUTTE LE CLASSI
+
+INDEX
+target top
+target bottom
+target right
+target left
+
+cali-bttn
+
+APPS
+target top
+app
+setting-title
+movie-title
+app-letter
+
+cali-bttn
+
+PAINTING
+target top
+target bottom
+film
+text
+sub-text
+stars
+
+cali-bttn

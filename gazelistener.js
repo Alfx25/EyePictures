@@ -17,7 +17,7 @@ function emptyList(){
 }
 function addElement(id){
     elements.push(id);
-    
+
 }
 console.log(elements);
 function isOverListener()
@@ -81,10 +81,7 @@ function isOverListener()
 }
 
 // Better Prediction
-// Author Alexandre Pana
-
 // Global Variables & Constants
-
 
 
 // Takes array of points and returns the average.
