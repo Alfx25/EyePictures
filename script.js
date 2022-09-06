@@ -133,7 +133,7 @@ function quadroIndietro()
 
 function openImage(url, film)
 {
-    
+    url = "/EyePictures" + url; //for testing on github
     var client = new XMLHttpRequest();
     client.open('GET', url);
     
