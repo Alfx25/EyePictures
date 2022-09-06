@@ -131,14 +131,14 @@ function quadroIndietro()
     }
 } 
 
-function openImage(url, film)
+function openImage(url, quadri)
 {
     url = "/EyePictures" + url; //for testing on github
     var client = new XMLHttpRequest();
     client.open('GET', url);
     
-    document.getElementById(film).style = "top: -50px; left: -50px; overflow: visible; transition: all 1s ease; z-index: 2000;";
-    document.getElementById(film + "-img").style = "filter: brightness(0%); width: 100vw; height: 100vh; top: 0; left: 0; transition: width 1s ease, height 0.5s ease";
+    document.getElementById(quadri).style = "top: -50px; left: -50px; overflow: visible; transition: all 1s ease; z-index: 2000;";
+    document.getElementById(quadri + "-img").style = "filter: brightness(0%); width: 100vw; height: 100vh; top: 0; left: 0; transition: width 1s ease, height 0.5s ease";
     
     client.onload = function() 
     {
@@ -151,7 +151,7 @@ function openImage(url, film)
             document.getElementById("content").innerHTML = content;
             window.history.pushState({}, title, url);
             document.title = title;
-            document.getElementById("immagine").setAttribute("src", "/film/" + film + ".jpeg")
+            document.getElementById("immagine").setAttribute("src", "/quadri/" + quadri + ".jpeg")
         }, 1000);
     }
     client.send();
