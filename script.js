@@ -13,7 +13,7 @@ document.addEventListener('keydown', function(event)
 
 function gotoPage(url, dir)
 {
-    url = "/EyePictures" + url; //for testing on github
+    //url = "/EyePictures" + url; //for testing on github
     var client = new XMLHttpRequest();
     client.open('GET', url);
     
@@ -133,7 +133,7 @@ function quadroIndietro()
 
 function openImage(url, quadri)
 {
-    url = "/EyePictures" + url; //for testing on github
+    //url = "/EyePictures" + url; //for testing on github
     var client = new XMLHttpRequest();
     client.open('GET', url);
     
