@@ -17,7 +17,7 @@ function emptyList(){
 }
 function addElement(id){
     elements.push(id);
-
+    
 }
 console.log(elements);
 function isOverListener()
@@ -31,8 +31,8 @@ function isOverListener()
         
         hasBeenOver[counter] = null;
         elements.forEach(function(id){
-            ele = document.getElementById(id);
-            let eleStyle = window.getComputedStyle(ele);
+            const ele = document.getElementById(id);
+            const eleStyle = window.getComputedStyle(ele, null)
             let widthStr = eleStyle.width.toString();
             //console.log(widthStr);
             let width = parseInt(widthStr.substring(0,widthStr.length - 2)) + buffer; 
@@ -81,7 +81,10 @@ function isOverListener()
 }
 
 // Better Prediction
+// Author Alexandre Pana
+
 // Global Variables & Constants
+
 
 
 // Takes array of points and returns the average.

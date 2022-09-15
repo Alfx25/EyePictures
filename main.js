@@ -32,11 +32,11 @@ function drama()
         gotoPage('/apps.html','bottom');
     });
 
-    addElement("right-drama");
+    //addElement("right-drama");
     addToMap("right-drama",function(){
     });
 
-    addElement("left-drama");
+    //addElement("left-drama");
     addToMap("left-drama",function(){
     });
 
@@ -169,10 +169,6 @@ function tutorial(){
     addToMap("tutorial-bottom", function(){
         gotoPage('/apps.html', 'bottom');
     })
-
-
-    
-
 }
 
 function apps() {
@@ -195,10 +191,6 @@ document.onkeypress = function(e) {
     {
         let hovered = document.getElementsByClassName("hover")[0];
         func = myMap.get(hovered.id.toString());
-        func();
-            
-
-        
-        
+        func();        
     }
 }
