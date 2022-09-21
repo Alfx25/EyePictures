@@ -12,6 +12,7 @@ var cx, cy, vx, vy = 0;         // Cursor varaibles (update to class if necessar
 var CursorDrawn = false;
 
 
+
 function emptyList(){
     elements.length = 0;
 }
@@ -25,10 +26,9 @@ function isOverListener()
     var prediction = webgazer.getCurrentPrediction();
     if (prediction) 
     {
-        console.log("hello");
-        // let x = prediction.x;
-        // let y = prediction.y;
-        
+        let x = prediction.x;
+        let y = prediction.y;
+
         hasBeenOver[counter] = null;
         elements.forEach(function(id){
             const ele = document.getElementById(id);
@@ -56,7 +56,7 @@ function isOverListener()
                 if(hasBeenOver.includes(id))
                 {
                     ele.classList.add("hover");
-                    console.log("yeet");
+                  
                 }
                 else
                 {
@@ -76,16 +76,12 @@ function isOverListener()
                 }
             }
         });
-        counter= counter + 1 % 10;      
+        counter= counter + 1 % 10;   
+        
+    
     }
+   
 }
-
-// Better Prediction
-// Author Alexandre Pana
-
-// Global Variables & Constants
-
-
 
 // Takes array of points and returns the average.
 function averagePoints(points)

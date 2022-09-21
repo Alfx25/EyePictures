@@ -4,11 +4,11 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
         <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        
         <title>Impostazioni</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./style.css" />
         <link id="favicon" rel="shortcut icon" type="image/png" href="./favicon.png">
+       
     </head>
     
     <body>
@@ -27,37 +27,54 @@
                     --star-color: rgba(44, 95, 171, 0.6);
                 }
             </style>
-            <div class="target top" id="top-video" onclick="gotoPage('/settings.html?=video','top')">
+            <div class="target top" id="top-image" onclick="gotoPage('/settings.html?=video','top')">
                 <div id="border-top" class="border top">
                     <div>Settings</div>
                 </div>
             </div>
-            <script>addElement("top-video")</script>
+            <script>addElement("top-image")</script>
 
-            <div class="target bottom" id="bottom-video" onclick="gotoPage('/painting.html','bottom')">
+            <div class="target bottom" id="bottom-image" onclick="gotoPage('/painting.html','bottom')">
                 <div id="border-bottom" class="border bottom">
                     <div>Exit</div>
                 </div>
             </div>
-            <script>addElement("bottom-video")</script>
+            <script>addElement("bottom-image")</script>
 
-            <div class="target right" id="right-video" onclick="quadroAvanti()">
+            <div class="target right" id="right-image" onclick="quadroAvanti()">
                 <div id="border-right" class="border right">
                     <div>Avanti</div>
                 </div>
             </div>
-            <script>addElement("right-video")</script>
+            <script>addElement("right-image")</script>
 
-            <div class="target left" id="left-video" onclick="quadroIndietro()">
+            <div class="target left" id="left-image" onclick="quadroIndietro()">
                 <div id="border-left" class="border left">
                     <div>Indietro</div>
                 </div>
             </div>
-            <script>addElement("left-video")</script>
+            <script>addElement("left-image")</script>
             
             <div class="foto-wrapper">
                 <img id="immagine">
             </div>
+            <div class="film" id="pallino">
+                <img id="pallino-img" src="quadri/pallino.png" onload="visual()">
+                <div class="text">
+                    <h2 class="sub-text">Titolo prova</h2>
+                    <p><span class="sub-text a">Testo di prova che spiega</span><span class="sub-text b"> cosa sto guardando e</span><span class="sub-text c">percgè è stato fatto così</span></p>
+                </div>
+            </div>
+            <script>addElement("pallino")</script>
+
+            <div class="film" id="pallino2">
+                <img id="pallino-img" src="quadri/pallino.png">
+                <div class="text">
+                    <h2 class="sub-text">Titolo prova</h2>
+                    <p><span class="sub-text a">Testo di prova che spiega</span><span class="sub-text b"> cosa sto guardando e</span><span class="sub-text c">percgè è stato fatto così</span></p>
+                </div>
+            </div>
+            <script>addElement("pallino2")</script>
             
             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
             

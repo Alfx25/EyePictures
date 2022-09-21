@@ -1,11 +1,11 @@
 window.onload = function() {
     console.log("hello")
+
     //start the webgazer tracker
     webgazer.setRegression('ridge') /* currently must set regression and tracker */
         .setTracker('clmtrackr')
-        .setGazeListener(function(data, clock) {
-             //console.log(data); /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-          //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
+        .setGazeListener(function() {
+
         })
         .begin()
         .showPredictionPoints(true); /* shows a square every 100 milliseconds where current prediction is */
@@ -19,15 +19,93 @@ function addToMap(string, func)
     console.log(myMap);
 }
 
+setInterval(function(){ 
+    if(document.getElementById("calibrator").classList.contains("show")){
+        var prediction = webgazer.getCurrentPrediction()
+      var video = webgazer.getVideoElementCanvas()
+      var patches = webgazer.getTracker().getEyePatches(video, video["width"], video["height"])
+      var a = patches.positions[63]
+      var b = patches.positions[66]
+
+      var a1 = patches.positions[64]
+      var b1 = patches.positions[66]
+
+      var a2 = patches.positions[24]
+      var b2 = patches.positions[26]
+
+      var oriz1 = patches.positions[23]
+      var oriz2 = patches.positions[25]
+
+      var distanzaX  = a[0] - b[0]
+      var distanzaY = a[1] - b[1] 
+      var distanza = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = a1[0] - b1[0]
+      var distanzaY = a1[1] - b1[1] 
+      var distanza2 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = a2[0] - b2[0]
+      var distanzaY = a2[1] - b2[1] 
+      var distanza3 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = oriz1[0] - oriz2[0]
+      var distanzaY = oriz1[1] - oriz2[1] 
+      var distanza4 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var eyeratio = (distanza + distanza2 + distanza3)/(3 * distanza4)
+      if(eyeratio < 0.37){
+          console.log("blink detected")
+      }
+    }   
+    else{
+    var prediction = webgazer.getCurrentPrediction()
+      var video = webgazer.getVideoElementCanvas()
+      var patches = webgazer.getTracker().getEyePatches(video, video["width"], video["height"])
+      var a = patches.positions[63]
+      var b = patches.positions[66]
+
+      var a1 = patches.positions[64]
+      var b1 = patches.positions[66]
+
+      var a2 = patches.positions[24]
+      var b2 = patches.positions[26]
+
+      var oriz1 = patches.positions[23]
+      var oriz2 = patches.positions[25]
+
+      var distanzaX  = a[0] - b[0]
+      var distanzaY = a[1] - b[1] 
+      var distanza = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = a1[0] - b1[0]
+      var distanzaY = a1[1] - b1[1] 
+      var distanza2 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = a2[0] - b2[0]
+      var distanzaY = a2[1] - b2[1] 
+      var distanza3 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var distanzaX  = oriz1[0] - oriz2[0]
+      var distanzaY = oriz1[1] - oriz2[1] 
+      var distanza4 = Math.sqrt((distanzaX * distanzaX) + (distanzaY * distanzaY))
+
+      var eyeratio = (distanza + distanza2 + distanza3)/(3 * distanza4)
+      if(eyeratio < 0.37){
+           document.elementFromPoint(prediction.x, prediction.y).click()
+          console.log("blink detected")
+      }
+     }
+}, 350);
+
 function drama()
 {
     emptyList();
-    addElement("top-drama");
-    addToMap("top-drama",function(){
+    addElement("top-page");
+    addToMap("top-page",function(){
         gotoPage('/settings.html?=drama','top'); 
     });
 
-    addElement("bottom-drama");
+    addElement("bottom-page");
     addToMap("bottom-drama",function(){
         gotoPage('/apps.html','bottom');
     });
@@ -73,7 +151,7 @@ function settingsload()
     addToMap("bottom-settings", function(){
         if(window.location.href.indexOf('?=') < 0)
         {
-            gotoPage('/drama.html','bottom');
+            gotoPage('/painting.html','bottom');
         }
         else
         {
@@ -90,54 +168,33 @@ function settingsload()
     addToMap("up-bright", function(){
         increaseBrightness();
     });
-    
-    addElement("down-vol");
-    addToMap("down-vol", function(){
-        volDown();
-    });
-
-    addElement("up-vol");
-    addToMap("up-vol", function(){
-        volUp();
-    });
-
 }
 
-function video()
+function visual()
 {
     emptyList();
-
-    addElement("top-video");
-    addToMap("top-video",function(){
-        gotoPage('/settings.html?=video','top');
+    addElement("top-image");
+    addToMap("top-image",function(){
+        gotoPage('/settings.html?=image','top');
     });
 
-    addElement("bottom-video");
-    addToMap("bottom-video",function(){
-        if(window.location.href.indexOf('?=') < 0)
-        {
-            gotoPage('/drama.html','bottom');
-        }
-        else
-        {
-            gotoPage('/' + window.location.href.substring(window.location.href.indexOf('?=') + 2) + '.html','bottom');
-        }
+    addElement("bottom-image");
+    addToMap("bottom-image",function(){
+            gotoPage('/painting.html','bottom');
     });
 
-    addElement("right-video");
+    addElement("right-image");
     addToMap("right-video",function(){
         quadroAvanti();
     });
 
-    addElement("left-video");
+    addElement("left-image");
     addToMap("left-video",function(){
         quadroIndietro();
     });
-    addElement("player");
-    addToMap("player",function(){
-        playPause();
-    });
     
+    addElement("pallino");
+    addElement("pallino2");
 }
 
 function tutorial(){
@@ -162,7 +219,7 @@ function tutorial(){
 
     addElement("tutorial-top");
     addToMap("tutorial-top", function(){
-        gotoPage('/settings.html?=horror');
+        gotoPage('/settings.html?=image');
     })
 
     addElement("tutorial-bottom");
@@ -173,8 +230,8 @@ function tutorial(){
 
 function apps() {
     emptyList();
-    addElement("moviez");
-    addToMap("moviez",function(){
+    addElement("painting");
+    addToMap("painting",function(){
         gotoPage('/painting.html','top');
     });
 
@@ -194,3 +251,4 @@ document.onkeypress = function(e) {
         func();        
     }
 }
+

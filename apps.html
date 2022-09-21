@@ -30,18 +30,22 @@
             </style>
             
             <div class="target top" onclick="gotoPage('/settings.html?=apps','top')">
-                <div id="border-top" class="border top">
+                <div id="apps-top" class="border top">
                     <div>Settings</div>
                 </div>
             </div>
+            <script>addElement("apps-top")</script>
 
             <div style="height: calc(50% - 270px)"></div>
             
-            <div id="moviez" class="app" onclick="gotoPage('/painting.html','top')">
+            <div id="painting" class="app" onclick="gotoPage('/painting.html','top')">
                 <img src="./assets/painting.png" style="width: 200px;" onload="apps()">
                 <div class="setting-title movie-title"><span class="app-letter" style="transition-delay: 0.0s;">P</span><span class="app-letter" style="transition-delay: 0.02s;">a</span><span class="app-letter" style="transition-delay: 0.05s;">i</span><span class="app-letter" style="transition-delay: 0.08s;">n</span><span class="app-letter" style="transition-delay: 0.12s; transition-duration: 0.25s;">t</span><span class="app-letter" style="transition-delay: 0.17s; transition-duration: 0.3s;">i</span><span class="app-letter" style="transition-delay: 0.21s; transition-duration: 0.3s;">n</span><span class="app-letter" style="transition-delay: 0.25s; transition-duration: 0.3s;">g</span></div>
             </div>
-        </div> <!-- end of content -->
+            <script>addElement("painting")</script>
+        </div> 
+        
+        <!-- end of content -->
         
         <div id="brightness"></div>
         

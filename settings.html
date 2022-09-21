@@ -4,7 +4,7 @@
         <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
         <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
         <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-        
+
         <title>D-5:30 | General > Settings</title>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="./style.css" />
@@ -16,6 +16,7 @@
         <script type="text/javascript" src="script.js"></script>
         <script type="text/javascript" src="main.js"></script>
         <script type="text/javascript" src="gazelistener.js"></script>
+
         <div id="content">
             <style>
                 :root
@@ -27,7 +28,7 @@
                     --star-color: rgb(93, 156, 114);
                 }
             </style>
-            <div class="target bottom" onclick="if(window.location.href.indexOf('?=') < 0){gotoPage('/drama.html','bottom');}else{gotoPage('/' + window.location.href.substring(window.location.href.indexOf('?=') + 2) + '.html','bottom');}">
+            <div class="target bottom" onclick="if(window.location.href.indexOf('?=') < 0){gotoPage('/painting.html','bottom');}else{gotoPage('/' + window.location.href.substring(window.location.href.indexOf('?=') + 2) + '.html','bottom');}">
                 <div id="border-bottom" class="border bottom">
                     <div>Back</div>
                 </div>
@@ -51,19 +52,6 @@
 
             <div style="height: 140px"></div>
 
-            <div class="setting-container">
-                <div onclick="volDown()" class="setting-option">
-                    <i class="material-icons material-icons--round">
-                        volume_down
-                    </i>
-                </div>
-                <div class="setting-title">Volume</div>
-                <div onclick="volUp()" class="setting-option">
-                    <i class="material-icons material-icons--round">
-                        volume_up
-                    </i>
-                </div>
-            </div>
         </div> <!-- end of content -->
         
         <div id="brightness"></div>
