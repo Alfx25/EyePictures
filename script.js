@@ -73,22 +73,6 @@ function decreaseBrightness()
     }
 }
 
-function playPause()
-{
-    var vid = document.getElementById("video");
-    var icon = document.getElementById("play-icon");
-    if((vid.currentTime < 0.1) || vid.paused || vid.ended || (vid.readyState < 3))
-    {
-        vid.play();
-        icon.className = "";
-        
-    }
-    else
-    {
-        vid.pause();
-        icon.className = "show";
-    }
-}
 
 function quadroAvanti() 
 {   
@@ -155,32 +139,6 @@ function openImage(url, quadri)
         }, 1000);
     }
     client.send();
-}
-
-
-function volUp()
-{
-    volume += 0.1;
-    
-    if(volume > 1)
-    {
-        volume = 1;
-    }
-}
-
-function volDown()
-{
-    volume -= 0.1;
-    
-    if(volume < 0)
-    {
-        volume = 0;
-    }
-}
-
-function getVol()
-{
-    return volume;
 }
 
 function toggleCalibrator()

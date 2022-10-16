@@ -47,7 +47,7 @@ function isOverListener()
             let right_side = cx + radius[0];
             let bottom_side = cy - radius[1];
             let top_side = cy + radius[1];
-             let inside = ((left < left_side && left_side < left + width) || (left < right_side && right_side < left + width)) && ((top < top_side && top_side < top + height) || (top < bottom_side && bottom_side < top + height));
+            let inside = ((left < left_side && left_side < left + width) || (left < right_side && right_side < left + width)) && ((top < top_side && top_side < top + height) || (top < bottom_side && bottom_side < top + height));
             //let inside = x > left && y > top && y < top+height && x < left + width;
             //console.log(inside);
             
