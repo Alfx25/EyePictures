@@ -1,290 +1,142 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
-    />
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <head>
+        <meta charset="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
+        <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        
+        <title>Quadri Famosi</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link id="favicon" rel="shortcut icon" type="image/png" href="./favion.png">
+        <script src="xlsx.full.min.js"></script>
+        <script type="text/javascript" src="FileSaver.js"></script>    
+        <script type="text/javascript" src="sheets.js"></script>
+    
+    </head>
+    
+    <body>
+        <script async type="text/javascript" src="webgazer.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="gazelistener.js"></script>
+        <div id="content">
+            <style>
+                :root
+                {
+                    --background: #f09c00;
+                    --border: #ffcb6b;
+                    --foreground: #000;
+                    --foreground-color: rgb(62 58 24);
+                    --star-color: #ffeb3b;
+                }
 
-    <title>Quadri Famosi</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link
-      id="favicon"
-      rel="shortcut icon"
-      type="image/png"
-      href="./favion.png"
-    />
-    <script src="xlsx.full.min.js"></script>
-    <script type="text/javascript" src="FileSaver.js"></script>
-    <script type="text/javascript" src="sheets.js"></script>
-  </head>
+                .film:hover img
+                {
+                    box-shadow: -1px 3px 20px 0px rgba(109, 10, 86, 0.1), -1px 3px 9px 0px rgba(109, 10, 86, 0.6), -1px 2px 20px 5px rgba(214, 89, 0, 0.3);
+                }
 
-  <body>
-    <script async type="text/javascript" src="webgazer.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="gazelistener.js"></script>
-    <div id="content">
-      <style>
-        :root {
-          --background: #f09c00;
-          --border: #ffcb6b;
-          --foreground: #000;
-          --foreground-color: rgb(62 58 24);
-          --star-color: #ffeb3b;
-        }
+                .film img
+                {
+                    box-shadow: rgba(109, 10, 86, 0.1) -1px 3px 8px 0px, 1px 3px 9px 0px rgba(109, 10, 86, 0.5), rgba(214, 89, 0, 0.2) -1px 2px 20px 2px;
+                }
+            </style>
+            <div class="target top" id="top-page" onclick="download_csv_file()">
+                <div id="border-top" class="border top">
+                    <div>Settings</div>
+                </div>
+            </div>
+            <script>addElement("top-page")</script>
+            <!--gotoPage('/settings.html?=painting','top')-->
+            <div class="target bottom" id="bottom-page" onclick="gotoPage('/apps.html','bottom')">
+                <div id="border-bottom" class="border bottom">
+                    <div>Categorie</div>
+                </div>
+            </div>
+            <script>addElement("bottom-page")</script>
 
-        .film:hover img {
-          box-shadow: -1px 3px 20px 0px rgba(109, 10, 86, 0.1),
-            -1px 3px 9px 0px rgba(109, 10, 86, 0.6),
-            -1px 2px 20px 5px rgba(214, 89, 0, 0.3);
-        }
-
-        .film img {
-          box-shadow: rgba(109, 10, 86, 0.1) -1px 3px 8px 0px,
-            1px 3px 9px 0px rgba(109, 10, 86, 0.5),
-            rgba(214, 89, 0, 0.2) -1px 2px 20px 2px;
-        }
-      </style>
-      <div class="target top" id="top-page" onclick="download_csv_file()">
-        <div id="border-top" class="border top">
-          <div>Settings</div>
-        </div>
-      </div>
-      <script>
-        addElement("top-page");
-      </script>
-      <!--gotoPage('/settings.html?=painting','top')-->
-      <div
-        class="target bottom"
-        id="bottom-page"
-        onclick="gotoPage('/apps.html','bottom')"
-      >
-        <div id="border-bottom" class="border bottom">
-          <div>Categorie</div>
-        </div>
-      </div>
-      <script>
-        addElement("bottom-page");
-      </script>
-
-      <!--<script>addElement("right-drama")</script>
+            <!--<script>addElement("right-drama")</script>
             <script>addElement("left-drama")</script>-->
 
-      <div
-        class="film"
-        id="gioconda"
-        style="top: 500px; left: 1185px"
-        onclick="openImage('/visualizzazione.html?=quadri','gioconda')"
-      >
-        <img id="gioconda-img" src="quadri/gioconda.jpeg" onload="painting()" />
-        <div class="text">
-          <h2 class="sub-text">Gioconda</h2>
-          <p>
-            <span class="sub-text a"
-              >La Gioconda, nota anche come Monna Lisa</span
-            ><span class="sub-text b"
-              >è un dipinto a olio su tavola di legno di pioppo realizzato da
-              Leonardo da Vinci</span
-            ><span class="sub-text c"
-              >conservato nel Museo del Louvre di Parigi.</span
-            >
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1503-1506 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i>
-          </p>
+            <div class="film" id="gioconda" style="top:500px;left:1185px;" onclick="openImage('/visualizzazione.html?=quadri','gioconda')">
+                <img id="gioconda-img" src="quadri/gioconda.jpeg" onload="painting()">
+                <div class="text">
+                    <h2 class="sub-text">Gioconda</h2>
+                    <p><span class="sub-text a">La Gioconda, nota anche come Monna Lisa</span><span class="sub-text b">è un dipinto a olio su tavola di legno di pioppo realizzato da Leonardo da Vinci</span><span class="sub-text c">conservato nel Museo del Louvre di Parigi.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1503-1506 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i></p>
+                </div>
+            </div>
+            <script>addElement("gioconda")</script>
+
+            <div class="film" id="urlo" style="top:100px;left:70px;" onclick="openImage('/visualizzazione.html?=quadri','urlo')">
+                <img id="urlo-img" src="quadri/urlo.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">L'urlo</h2>
+                    <p><span class="sub-text a">L’Urlo di Munch mostra in primo piano il volto di un essere umano</span><span class="sub-text b"> totalmente sfigurato</span><span class="sub-text c">con la carnagione di un colore tra il giallo e il verdognolo</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1893–1910 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i></p>
+                </div>
+            </div>
+            <script>addElement("urlo")</script>
+
+            <div class="film" id="vangogh" style="top:100px;left:633px;" onclick="openImage('/visualizzazione.html?=quadri','vangogh')">
+                <img id="vangogh-img" src="quadri/vangogh.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">nafea faa ipoipo</h2>
+                    <p><span class="sub-text a">Questo capolavoro del pittore francese Gauguin mostra due ragazze sull'isola di Tahiti. </span><span class="sub-text b">Il titolo altro non è che una frase scritta nella lingua del posto.</span><span class="sub-text c">La traduzione è. "quando ti sposi?"</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1892 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+            <script>addElement("vangogh")</script>
+
+            <div class="film" id="nafea" style="top:500px;left:633px;" onclick="openImage('/visualizzazione.html?=quadri','nafea')">
+                <img id="nafea-img" src="quadri/nafea.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">nafea faa ipoipo</h2>
+                    <p><span class="sub-text a">Questo capolavoro del pittore francese Gauguin mostra due ragazze sull'isola di Tahiti. </span><span class="sub-text b">Il titolo altro non è che una frase scritta nella lingua del posto.</span><span class="sub-text c">La traduzione è. "quando ti sposi?"</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1892 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+            <script>addElement("nefea")</script>
+
+
+            <div class="film" id="turbante" style="top:70px;left:1185px;" onclick="openImage('/visualizzazione.html?=quadri','turbante')">
+                <img id="turbante-img" src="quadri/turbante.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Ragazza col turbante</h2>
+                    <p><span class="sub-text a">dipinto di Jan Vermeer, dipinto reso ancora più famoso dal film del 2003, dove la ragazza ritratta da Vermeer</span><span class="sub-text b">è stata interpretata da una giovane Scarlett Johansson (la Vedova Nera degli Avengers).</span><span class="sub-text c">tutt'ora nessuno sa con esattezza chi fu la ragazza che posò per il pittore.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1665-1666 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+            <script>addElement("turbante")</script>
+
+            <div class="film" id="dama" style="top:500px;left:70px;" onclick="openImage('/visualizzazione.html?=quadri','dama')">
+                <img id="dama-img" src="quadri/dama.jpeg">
+                <div class="text">
+                    <h2 class="sub-text">Dama con ermellino</h2>
+                    <p><span class="sub-text a">quadro di Leonardo da Vinci</span><span class="sub-text b">La donna ritratta da Leonardo è quasi sicuramente</span><span class="sub-text c">nobildonna Cecilia Gallerani.</span></p>
+                    <p class="sub-text stars" style="margin: 0;">1488-1490 &nbsp;•&nbsp; <i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star </i><i class="material-icons material-icons--round"> star_border </i></p>
+                </div>
+            </div>
+        </div> <!-- end of content -->
+        <script>addElement("dama")</script>
+        
+
+        
+        
+        <div id="brightness"></div>
+        
+        <div id="calibrator">
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+           
         </div>
-      </div>
-      <script>
-        addElement("gioconda");
-      </script>
-
-      <div
-        class="film"
-        id="urlo"
-        style="top: 100px; left: 70px"
-        onclick="openImage('/visualizzazione.html?=quadri','urlo')"
-      >
-        <img id="urlo-img" src="quadri/urlo.jpeg" />
-        <div class="text">
-          <h2 class="sub-text">L'urlo</h2>
-          <p>
-            <span class="sub-text a"
-              >L’Urlo di Munch mostra in primo piano il volto di un essere
-              umano</span
-            ><span class="sub-text b"> totalmente sfigurato</span
-            ><span class="sub-text c"
-              >con la carnagione di un colore tra il giallo e il
-              verdognolo</span
-            >
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1893–1910 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i>
-          </p>
-        </div>
-      </div>
-      <script>
-        addElement("urlo");
-      </script>
-
-      <div
-        class="film"
-        id="vangogh"
-        style="top: 100px; left: 633px"
-        onclick="openImage('/visualizzazione.html?=quadri','vangogh')"
-      >
-        <img id="vangogh-img" src="quadri/vangogh.jpeg" />
-        <div class="text">
-          <h2 class="sub-text">nafea faa ipoipo</h2>
-          <p>
-            <span class="sub-text a"
-              >Questo capolavoro del pittore francese Gauguin mostra due ragazze
-              sull'isola di Tahiti. </span
-            ><span class="sub-text b"
-              >Il titolo altro non è che una frase scritta nella lingua del
-              posto.</span
-            ><span class="sub-text c">La traduzione è. "quando ti sposi?"</span>
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1892 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star_border </i
-            ><i class="material-icons material-icons--round"> star_border </i>
-          </p>
-        </div>
-      </div>
-      <script>
-        addElement("vangogh");
-      </script>
-
-      <div
-        class="film"
-        id="nafea"
-        style="top: 500px; left: 633px"
-        onclick="openImage('/visualizzazione.html?=quadri','nafea')"
-      >
-        <img id="nafea-img" src="quadri/nafea.jpeg" />
-        <div class="text">
-          <h2 class="sub-text">nafea faa ipoipo</h2>
-          <p>
-            <span class="sub-text a"
-              >Questo capolavoro del pittore francese Gauguin mostra due ragazze
-              sull'isola di Tahiti. </span
-            ><span class="sub-text b"
-              >Il titolo altro non è che una frase scritta nella lingua del
-              posto.</span
-            ><span class="sub-text c">La traduzione è. "quando ti sposi?"</span>
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1892 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star_border </i
-            ><i class="material-icons material-icons--round"> star_border </i>
-          </p>
-        </div>
-      </div>
-      <script>
-        addElement("nefea");
-      </script>
-
-      <div
-        class="film"
-        id="turbante"
-        style="top: 70px; left: 1185px"
-        onclick="openImage('/visualizzazione.html?=quadri','turbante')"
-      >
-        <img id="turbante-img" src="quadri/turbante.jpeg" />
-        <div class="text">
-          <h2 class="sub-text">Ragazza col turbante</h2>
-          <p>
-            <span class="sub-text a"
-              >dipinto di Jan Vermeer, dipinto reso ancora più famoso dal film
-              del 2003, dove la ragazza ritratta da Vermeer</span
-            ><span class="sub-text b"
-              >è stata interpretata da una giovane Scarlett Johansson (la Vedova
-              Nera degli Avengers).</span
-            ><span class="sub-text c"
-              >tutt'ora nessuno sa con esattezza chi fu la ragazza che posò per
-              il pittore.</span
-            >
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1665-1666 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star_border </i>
-          </p>
-        </div>
-      </div>
-      <script>
-        addElement("turbante");
-      </script>
-
-      <div
-        class="film"
-        id="dama"
-        style="top: 500px; left: 70px"
-        onclick="openImage('/visualizzazione.html?=quadri','dama')"
-      >
-        <img id="dama-img" src="quadri/dama.jpeg" />
-        <div class="text">
-          <h2 class="sub-text">Dama con ermellino</h2>
-          <p>
-            <span class="sub-text a">quadro di Leonardo da Vinci</span
-            ><span class="sub-text b"
-              >La donna ritratta da Leonardo è quasi sicuramente</span
-            ><span class="sub-text c">nobildonna Cecilia Gallerani.</span>
-          </p>
-          <p class="sub-text stars" style="margin: 0">
-            1488-1490 &nbsp;•&nbsp;
-            <i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star </i
-            ><i class="material-icons material-icons--round"> star_border </i>
-          </p>
-        </div>
-      </div>
-    </div>
-    <!-- end of content -->
-    <script>
-      addElement("dama");
-    </script>
-
-    <div id="brightness"></div>
-
-    <div id="calibrator">
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-    </div>
-  </body>
+        
+    </body>
 </html>

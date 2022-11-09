@@ -1,134 +1,89 @@
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
-    />
-    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Impostazioni</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" type="text/css" href="./style.css" />
-    <link
-      id="favicon"
-      rel="shortcut icon"
-      type="image/png"
-      href="./favicon.png"
-    />
-  </head>
+    <head>
+        <meta charset="utf-8" />
+        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
+        <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Impostazioni</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./style.css" />
+        <link id="favicon" rel="shortcut icon" type="image/png" href="./favicon.png">
+       
+    </head>
+    
+    <body>
+        <script async type="text/javascript" src="webgazer.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <script type="text/javascript" src="main.js"></script>
+        <script type="text/javascript" src="gazelistener.js"></script>
+        <div id="content">
+            <style>
+                :root
+                {
+                    --background: #222;
+                    --border: #000;
+                    --foreground: #fff;
+                    --foreground-color: #2c5fab;
+                    --star-color: rgba(44, 95, 171, 0.6);
+                }
+            </style>
+            <div class="target top" id="top-image" onclick="gotoPage('/settings.html?=video','top')">
+                <div id="border-top" class="border top">
+                    <div>Settings</div>
+                </div>
+            </div>
+            <script>addElement("top-image")</script>
 
-  <body>
-    <script async type="text/javascript" src="webgazer.js"></script>
-    <script type="text/javascript" src="script.js"></script>
-    <script type="text/javascript" src="main.js"></script>
-    <script type="text/javascript" src="gazelistener.js"></script>
-    <div id="content">
-      <style>
-        :root {
-          --background: #222;
-          --border: #000;
-          --foreground: #fff;
-          --foreground-color: #2c5fab;
-          --star-color: rgba(44, 95, 171, 0.6);
-        }
-      </style>
-      <div
-        class="target top"
-        id="top-image"
-        onclick="gotoPage('/settings.html?=video','top')"
-      >
-        <div id="border-top" class="border top">
-          <div>Settings</div>
+            <div class="target bottom" id="bottom-image" onclick="gotoPage('/painting.html','bottom')">
+                <div id="border-bottom" class="border bottom">
+                    <div>Exit</div>
+                </div>
+            </div>
+            <script>addElement("bottom-image")</script>
+
+            <div class="target right" id="right-image" onclick="quadroAvanti()">
+                <div id="border-right" class="border right">
+                    <div>Avanti</div>
+                </div>
+            </div>
+            <script>addElement("right-image")</script>
+
+            <div class="target left" id="left-image" onclick="quadroIndietro()">
+                <div id="border-left" class="border left">
+                    <div>Indietro</div>
+                </div>
+            </div>
+            <script>addElement("left-image")</script>
+            
+            <div class="foto-wrapper">
+                <img id="immagine" onload="visual()">
+            </div>
+            <div id="text" style="color: #000;position: absolute;background-color: orange;text-align: center;max-width: 300px;top: 265px;left: 800px;padding: 15px;border-radius: 20px;opacity: 0;">
+                <div class="text">
+                    <h2 class="sub-text">Sorriso gioconda</h2>
+                    <p><span class="sub-text a">Il sorriso della gioconda è forzato</span><span class="sub-text b"> e non spontaneo.</span><span class="sub-text c">Vuole dare un senso di felitià, ma non è così</span></p>
+                </div>
+            </div>
+
+
+ 
+            
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            
+        </div> <!-- end of content -->
+        
+        <div id="brightness"></div>
+        
+        <div id="calibrator">
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
+            <div class="cali-bttn"></div>
         </div>
-      </div>
-      <script>
-        addElement("top-image");
-      </script>
-
-      <div
-        class="target bottom"
-        id="bottom-image"
-        onclick="gotoPage('/painting.html','bottom')"
-      >
-        <div id="border-bottom" class="border bottom">
-          <div>Exit</div>
-        </div>
-      </div>
-      <script>
-        addElement("bottom-image");
-      </script>
-
-      <div class="target right" id="right-image" onclick="quadroAvanti()">
-        <div id="border-right" class="border right">
-          <div>Avanti</div>
-        </div>
-      </div>
-      <script>
-        addElement("right-image");
-      </script>
-
-      <div class="target left" id="left-image" onclick="quadroIndietro()">
-        <div id="border-left" class="border left">
-          <div>Indietro</div>
-        </div>
-      </div>
-      <script>
-        addElement("left-image");
-      </script>
-
-      <div class="foto-wrapper">
-        <img id="immagine" onload="visual()" />
-      </div>
-      <div
-        id="text"
-        style="
-          color: #000;
-          position: absolute;
-          background-color: orange;
-          text-align: center;
-          max-width: 300px;
-          top: 265px;
-          left: 800px;
-          padding: 15px;
-          border-radius: 20px;
-          opacity: 0;
-        "
-      >
-        <div class="text">
-          <h2 class="sub-text">Sorriso gioconda</h2>
-          <p>
-            <span class="sub-text a">Il sorriso della gioconda è forzato</span
-            ><span class="sub-text b"> e non spontaneo.</span
-            ><span class="sub-text c"
-              >Vuole dare un senso di felitià, ma non è così</span
-            >
-          </p>
-        </div>
-      </div>
-
-      <link
-        href="https://fonts.googleapis.com/icon?family=Material+Icons"
-        rel="stylesheet"
-      />
-    </div>
-    <!-- end of content -->
-
-    <div id="brightness"></div>
-
-    <div id="calibrator">
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-      <div class="cali-bttn"></div>
-    </div>
-  </body>
+    </body>
 </html>
