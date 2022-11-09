@@ -1,72 +1,80 @@
 <html>
-    <head>
-        <meta charset="utf-8" />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no'>
-        <meta content='text/html; charset=utf-8' http-equiv='Content-Type'>
-        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no"
+    />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-        <title>D-5:30 | General > Settings</title>
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="./style.css" />
-        <link id="favicon" rel="shortcut icon" type="image/png" href="./favicon.png">
-    </head>
-    
-    <body>
-        <script async type="text/javascript" src="webgazer.js"></script>
-        <script type="text/javascript" src="script.js"></script>
-        <script type="text/javascript" src="main.js"></script>
-        <script type="text/javascript" src="gazelistener.js"></script>
+    <title>D-5:30 | General > Settings</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link
+      id="favicon"
+      rel="shortcut icon"
+      type="image/png"
+      href="./favicon.png"
+    />
+  </head>
 
-        <div id="content">
-            <style>
-                :root
-                {
-                    --background: #C4DDC6;
-                    --border: #DCEBDD;
-                    --foreground: #000;
-                    --foreground-color: rgb(93, 156, 114);
-                    --star-color: rgb(93, 156, 114);
-                }
-            </style>
-            <div class="target bottom" onclick="if(window.location.href.indexOf('?=') < 0){gotoPage('/painting.html','bottom');}else{gotoPage('/' + window.location.href.substring(window.location.href.indexOf('?=') + 2) + '.html','bottom');}">
-                <div id="border-bottom" class="border bottom">
-                    <div>Back</div>
-                </div>
-            </div>
+  <body>
+    <script async type="text/javascript" src="webgazer.js"></script>
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="gazelistener.js"></script>
 
-            <div style="height: calc(50% - 270px)"></div>
-
-            <div class="setting-container">
-                <div onclick="decreaseBrightness()" class="setting-option">
-                    <i class="material-icons material-icons--round">
-                        brightness_2
-                    </i>
-                </div>
-                <div class="setting-title">Brightness</div>
-                <div onclick="increaseBrightness()" class="setting-option">
-                    <i class="material-icons material-icons--round">
-                        brightness_5
-                    </i>
-                </div>
-            </div>
-
-            <div style="height: 140px"></div>
-
-        </div> <!-- end of content -->
-        
-        <div id="brightness"></div>
-        
-        <div id="calibrator">
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
-            <div class="cali-bttn"></div>
+    <div id="content">
+      <style>
+        :root {
+          --background: #c4ddc6;
+          --border: #dcebdd;
+          --foreground: #000;
+          --foreground-color: rgb(93, 156, 114);
+          --star-color: rgb(93, 156, 114);
+        }
+      </style>
+      <div
+        class="target bottom"
+        onclick="if(window.location.href.indexOf('?=') < 0){gotoPage('EyePictures/painting.html','bottom');}else{gotoPage('/' + window.location.href.substring(window.location.href.indexOf('?=') + 2) + '.html','bottom');}"
+      >
+        <div id="border-bottom" class="border bottom">
+          <div>Back</div>
         </div>
-        
-    </body>
+      </div>
+
+      <div style="height: calc(50% - 270px)"></div>
+
+      <div class="setting-container">
+        <div onclick="decreaseBrightness()" class="setting-option">
+          <i class="material-icons material-icons--round"> brightness_2 </i>
+        </div>
+        <div class="setting-title">Brightness</div>
+        <div onclick="increaseBrightness()" class="setting-option">
+          <i class="material-icons material-icons--round"> brightness_5 </i>
+        </div>
+      </div>
+
+      <div style="height: 140px"></div>
+    </div>
+    <!-- end of content -->
+
+    <div id="brightness"></div>
+
+    <div id="calibrator">
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+      <div class="cali-bttn"></div>
+    </div>
+  </body>
 </html>
